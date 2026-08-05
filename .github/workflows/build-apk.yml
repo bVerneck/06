@@ -35,7 +35,7 @@ jobs:
         run: npm install
 
       - name: Install Capacitor CLI & Core
-        run: npm install @capacitor/core @capacitor/cli @capacitor/android
+        run: npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/assets
 
       - name: Initialize Capacitor (if missing)
         run: |
@@ -50,6 +50,10 @@ jobs:
         run: |
           npx cap add android || true
           npx cap sync android
+
+      - name: Generate Splash & Icons (if missing)
+        run: |
+          npx @capacitor/assets generate --android || true
 
       - name: Build APK with Gradle
         run: |
