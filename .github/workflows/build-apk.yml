@@ -49,7 +49,7 @@ jobs:
       - name: Build APK with Gradle
         run: |
           cd android
-          gradle wrapper
+          gradle wrapper --gradle-version 8.5
           chmod +x gradlew
           ./gradlew assembleDebug
 
